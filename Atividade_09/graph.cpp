@@ -83,8 +83,11 @@ void DistributionGraph::getPageRanks(float* pageRanks){
     // Passo Iterativo
     for (int i = 0; i< numVertices; i++){
       pr[i] = 0;
-      for (int j = 0; j < edges[i].getLength(); j++){
-          pr[i] += pr_previous[j]/outputDegree[j];
+      for (int j = 0; j < numVertices; j++){
+          for (int k = 0; k < edges[j].getLength(); k++){
+            if (getIndex(edges[j].getItem(k)) == i)
+              pr[i] += pr_previous[j]/outputDegree[j];
+          }
       }
       pr[i] = (1-d)/numVertices + d*pr[i];
     }

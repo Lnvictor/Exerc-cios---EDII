@@ -16,7 +16,10 @@ int main() {
   graph.addEdge(b, d);
   graph.addEdge(b, e);
   graph.addEdge(c, e);
+  graph.addEdge(c, a);
   graph.addEdge(d, e);
+  graph.addEdge(d, b);
+  graph.addEdge(e, a);
 
   graph.printMatrix(); 
   
